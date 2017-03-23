@@ -2,10 +2,9 @@ package main
 
 import "fmt"
 
-var parent map[int]int
-
 func main() {
 	var graph map[int][]int
+	var parent map[int]int
 	graph = make(map[int][]int)
 	parent = make(map[int]int)
 	graph[0] = []int{1, 2}
