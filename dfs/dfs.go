@@ -2,10 +2,11 @@ package main
 
 import "fmt"
 
+var parent map[int]int
+
 func main() {
 	var graph map[int][]int
 	graph = make(map[int][]int)
-	var parent map[int]int
 	parent = make(map[int]int)
 	graph[0] = []int{1, 2}
 	graph[1] = []int{0, 3}
@@ -15,11 +16,14 @@ func main() {
 	graph[5] = []int{3, 4, 6, 7}
 	graph[6] = []int{4, 5, 7}
 	graph[7] = []int{6, 5}
+	graph[8] = []int{9, 10}
 
 	for k := range graph {
-		parent[k] = -1
-		dfs(k, graph, parent)
-		fmt.Printf("%v\nparent = %v\n", k, parent)
+		if _, ok := parent[k]; ok == false {
+			parent[k] = -1
+			dfs(k, graph, parent)
+			fmt.Printf("%v\nparent = %v\n", k, parent)
+		}
 	}
 
 }
