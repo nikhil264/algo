@@ -14,7 +14,6 @@ struct TrieNode{
 
 
 void addWord(TrieNode *root, string name){
-    printf("%s\n", name.c_str());
     if (name.empty()){
         ++(root->words);
         ++(root->prefixes);
@@ -60,7 +59,7 @@ int main() {
             string instr, input;
             cin >> instr >> input;
             if(instr == "add") addWord(&head,input);
-            if(instr == "find") cout << findPrefix(&head, input);
+            if(instr == "find") cout << findPrefix(&head, input) << endl;
         }
     }
     return 0;
